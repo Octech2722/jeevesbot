@@ -1,0 +1,14 @@
+import discord
+from discord.ext import commands
+
+class Whatever(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    @commands.command() # Creates a command just as you would in the bot.py file
+    async def command(self, ctx): # ALWAYS need self then context
+        print('This event happened and I heard it!')
+
+def setup(client):
+    client.add_cog(Whatever(client))

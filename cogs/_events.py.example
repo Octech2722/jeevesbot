@@ -1,0 +1,14 @@
+import discord
+from discord.ext import commands
+
+class Whatever(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    @commands.Cog.listener() # Creates a client listener so you can act on client events such as on_ready
+    async def on_eventName(self):
+        print('This event happened and I heard it!')
+
+def setup(client):
+    client.add_cog(Whatever(client))
