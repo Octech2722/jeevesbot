@@ -8,7 +8,6 @@ def read_token():
         return lines[0].strip()
 
 token = read_token()
-print(f'Token: {token}')
 
 #intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix = '.') #sets the prefix that the bot is looking for
