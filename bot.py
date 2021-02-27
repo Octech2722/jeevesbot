@@ -2,6 +2,14 @@ import discord #imports the discord library
 import os
 from discord.ext import commands #imports the "commands" section from the discord library
 
+def read_token():
+    with open("token.txt", "r") as f:
+        lines = f.readlines()
+        return lines[0].strip()
+
+token = read_token()
+print(f'Token: {token}')
+
 #intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix = '.') #sets the prefix that the bot is looking for
 
@@ -93,4 +101,4 @@ for filename in os.listdir('./cogs'):
 #    await ctx.channel.purge(limit=amount)
 #    print(f'{ctx.author.name} removed {amount} message(s) in "{ctx.guild}" "{ctx.channel}" channel!')
 #
-client.run('ODE1MDQxMTM4MTc5ODMzODk4.YDmoNg.VUvAM6766gYkWJ8cwbaTsw9LvoE')
+client.run(f'{token}')
